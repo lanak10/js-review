@@ -364,6 +364,9 @@ console.log(donutShop[2][0][0][1][0])
 
 // Teo is a person. I would hope so...
 // Check if Teo is a person. If true, print 'Teo is a person!' if not then print 'Teo is not a person!'
+
+// If Teo is a person, check to see if he is a male or a female. If male, print 'You got it right!' if not then print 'Wrong. Teo is going to remove you from the class.'.
+// If male, check to see if Teo is hungry. If Teo is 'hungry' then print 'Let's buy Teo some tacos!'. If Teo is 'not hungry' then print 'He doesn't need to eat.'. Anything else, print 'If Teo is not hungry, am I hungry?'
 let teo = "person"
 let gender = "male"
 let hungerStatus = "hungry"
@@ -377,6 +380,8 @@ if (gender === "male"){
     console.log("Let's buy Teo some tacos!")
   } else if (hungerStatus === "not hungry") {
     console.log("He doesn't need to eat.")
+  } else {
+    console.log("If Teo is not hungry, am I hungry?")
   }
 } else {
   console.log('Wrong. Teo is going to remove you from the class.')
@@ -385,10 +390,12 @@ if (gender === "male"){
 } else {
   console.log('Teo is not a person!')
 }
-// If Teo is a person, check to see if he is a male or a female. If male, print 'You got it right!' if not then print 'Wrong. Teo is going to remove you from the class.'.
-// If male, check to see if Teo is hungry. If Teo is 'hungry' then print 'Let's buy Teo some tacos!'. If Teo is 'not hungry' then print 'He doesn't need to eat.'. Anything else, print 'If Teo is not hungry, am I hungry?'
+
 
 // Create a if/else ternary to check if Gustavo is the coolest. If coolest, print 'You got that right!', else print 'James wants to argue. He says he's the best!'
+let gustavo = "coolest"
+let trueStatus = gustavo === "coolest" ? 'You got that right!' : 'James wants to argue. He says he\'s the best!'
+console.log(trueStatus)
 
 // =================================================
 //                     FUNCTIONS
@@ -397,35 +404,93 @@ if (gender === "male"){
 // Don't forget to call your functions :)
 
 // Create a function called sayGreeting and PRINT 'Hello, ma'amsir!'
+function sayGreeting(){
+  console.log('Hello, ma\'amsir!')
+}
+sayGreeting()
 
 // Create a function that takes a string as a parameter. PRINT 'This is my (STRING)'. Please replace the (STRING) with the parameter. Don't play with me haha.
+function randomString(string){
+  console.log(`This is my ${string}`)
+}
+randomString('teddy bear')
 
 // Create a function called add that takes in three number parameters. Create 3 variables and assign numerical values to them. Invoke your add() and pass in those three variables as arguments.
+const num1 = 3
+const num2 = 91
+const num3 = 1
+function add(num1, num2, num3) {
+  console.log(num1 + num2 + num3);
+}
+add(num1, num2, num3)
 
 // Create a function called fightClub() that accepts a name parameter.  If the name:
 // 'Teo' RETURN '1st rule: You do not talk about Fight Club.'
 // 'Manara' RETURN '2nd rule: YOU DO NOT TALK ABOUT FIGHT CLUB.'
 // 'Liv' RETURN '3rd rule: If someone yells "Stop!", goes limp, taps out, the fight is over.'
 // 'Devin' RETURN '4th rule: Only two guys to a fight.'
-// Anything else, RETURN 'No shirts
+// Anything else, RETURN 'No shirts'
+function fightClub(name) {
+  if (name === "Teo") {
+    return '1st rule: You do not talk about Fight Club.'
+  } else if (name === "Manara") {
+    return '2nd rule: YOU DO NOT TALK ABOUT FIGHT CLUB.'
+  } else if (name === "Liv") {
+    return '3rd rule: If someone yells "Stop!", goes limp, taps out, the fight is over.'
+  } else if (name === "Devin") {
+    return '4th rule: Only two guys to a fight.'
+  }
+  else {
+    return 'No shirts'
+  }
+}
+console.log(fightClub("Liv"))
 
 // Create a function called hello() that prints 'Hello'. Return an anonymous function inside hello() and have it print 'Goodbye'. Invoke your hello function in some way to see Hello and Goodbye in the console.
+function hello(){
+  console.log("Hello")
+  return () => {
+    console.log("Goodbye")}
+  }
+hello()
+()
 
 // Create a function expression with your first name as the variable and then print your first and last name
+const lanaFirstName = function(first, last) {
+  const nameCombined = first + " " + last
+  return nameCombined;
+}
+lanaFirstName('Lana', 'Kim')
+console.log(lanaFirstName('Lana', 'Kim'))
 
 // Create an arrow function that accepts a number and have it return that number doubled
+const doubleNumber = (number) => {
+  let double = number * 2
+  return double
+}
+doubleNumber(5)
+console.log(doubleNumber(5))
 
 // =================================================
 //                     OBJECTS
 // =================================================
 
 // Create an object and call it human. Add a name, age, and location property. Give the properties values.
+let human = {
+  name: "Bruno Mars",
+  age: 36,
+  location: "Los Angeles"
+}
 
 // Access the name using dot notation
+console.log(human.name);
 
 // Access the age using square brackets
+console.log(human.age);
 
 // Use object destructuring to access location
+const {location} = human
+console.log(location)
 
 // ACCESS Granted
 const bulbasaur = {
@@ -445,17 +510,33 @@ const bulbasaur = {
 }
 
 // Print overgrow
+const {abilities} = bulbasaur.abilities;
+console.log(bulbasaur.abilities[0])
 
 // Print cut
+const {moves} = bulbasaur.moves;
+console.log(bulbasaur.moves[2])
 
 // Print Bulbahhhh!!!!!
+const {sound} = bulbasaur.sound;
+bulbasaur.sound()
 
 // Add a height of 7 to bulbasaur using the dot notation. (Don't change bulbasaur object manually)
+bulbasaur.height = 7
+console.log(bulbasaur.height)
 
 // Add a property called order and assign it a value of 1 using the square brackets. (Don't change bulbasaur object manually)
+bulbasaur['order'] = 1
+console.log(bulbasaur.order)
 
 // Print an array that contains every single properties in bulbasaur
+const bulbArr = Object.entries(bulbasaur)
+console.log(bulbArr)
 
 // Print every single properties one by one in the console
+const bulbProperties = Object.getOwnPropertyNames(bulbasaur) 
+console.log(bulbProperties) 
 
 // Print an array that contains every single values in bulbasaur
+const bulbValues = Object.values(bulbasaur)
+console.log(bulbValues)
